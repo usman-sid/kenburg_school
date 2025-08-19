@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_root"
+              name="School"/>
+
+    <menuitem id="menu_faculty"
+              name="School Faculty"
+              parent="menu_school_root"
+    />
+
+    <menuitem id="menu_teacher"
+              name="Teachers"
+              parent="menu_faculty"
+              action="action_school_teachers"
+    />
+
+    <menuitem id="menu_scl"
+              name="School Students"
+              parent="menu_school_root"
+    />
+
+    <menuitem id="menu_student"
+              name="Students"
+              parent="menu_scl"
+              action="action_school_students"
+    />
+
+    <menuitem id="menu_record"
+              name="Records"
+              parent="menu_school_root"
+              action="action_school_records"
+    />
+
+    <menuitem id="menu_record_wizard"
+              name="Wizard Records"
+              parent="menu_school_root"
+              action="action_school_record_wizard"
+    />
+
+</odoo>
+
+

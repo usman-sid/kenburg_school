@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Portal Teacher Details-->
+    <template id="portal_teacher_detail" inherit_id="portal.portal_sidebar">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <t t-if="teacher">
+                <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; margin-bottom: 20px;">
+                    <!-- Avatar -->
+                    <img src="/kenburg_school/static/src/img/avatar1.png" alt="Avatar"
+                         style="width: 80px; border-radius: 50%; margin-bottom: 15px;"/>
+
+                    <!-- Basic Info -->
+                    <h4 t-out="teacher.name"/>
+                    <p style="color: #666; margin: 5px 0;">Age:
+                        <span t-out="teacher.age"/>
+                    </p>
+                    <p style="color: #666; margin: 5px 0;">Gender:
+                        <span t-out="teacher.gender"/>
+                    </p>
+                    <p style="color: #666; margin: 5px 0;">Record:
+                        <span t-out="teacher.student_id.student_name"/>
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div style="margin-top: 15px;">
+                        <a href="/my/home" class="btn btn-primary btn-sm" style="margin-right: 5px;">Go Back</a>
+                        <a t-attf-href="/my/teachers/page/{{ c_page }}" class="btn btn-light btn-sm">Back to list</a>
+                        <a t-attf-href="/my/teachers/print/{{teacher.id}}" class="btn btn-primary btn-sm"
+                           style="margin-right: 5px;">Download Pdf
+                        </a>
+
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

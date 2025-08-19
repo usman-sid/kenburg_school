@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top Website Menu: Kenburg School -->
+    <record id="menu_kenburg_school" model="website.menu">
+        <field name="name">School</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="parent_id" search="[('parent_id', '=', False), ('website_id', '=', 1)]"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+
+    <!-- Submenu: Teachers -->
+    <record id="menu_school_teachers" model="website.menu">
+        <field name="name">Our Teachers</field>
+        <field name="url">/school/teacher</field>
+        <field name="parent_id" ref="kenburg_school.menu_kenburg_school"/>
+        <field name="sequence" type="int">10</field>
+    </record>
+    <!-- You can add more submenus similarly -->
+
+</odoo>

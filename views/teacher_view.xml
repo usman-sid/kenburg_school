@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_school_teachers_list" model="ir.ui.view">
+        <field name="name">school.teachers.list</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <list string="School Teachers">
+                <field name="name"/>
+                <field name="date_of_birth"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_teachers_form" model="ir.ui.view">
+        <field name="name">school.teachers.form</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <form string="School Teachers">
+                <header>
+                    <button name="action_print_xlsx" string="Print XLSX" type="object"
+                            class="btn btn-outline-secondary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_of_birth"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="active" invisible="1"/>
+                            <field name="student_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_school_teachers_search" model="ir.ui.view">
+        <field name="name">school.teachers.search</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <search string="School Teachers">
+                <field name="name" string="Teacher Name"
+                       filter_domain="['|', ('name', 'ilike', self), ('gender', 'ilike', self)]"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <filter name="filter_male" string="Male Teachers" domain="[('gender', '=', 'male')]"/>
+                <filter name="filter_female" string="Female Teachers" domain="[('gender', '=', 'female')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Gender" name="group_by_gender" context="{'group_by':'gender'}"/>
+                </group>
+                <searchpanel>
+                    <field name="gender" icon="fa-users" select="multi" enable_counters="1"/>
+                    <field name="student_id" icon="fa-filter" select="multi" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_school_teachers" model="ir.actions.act_window">
+        <field name="name">Teachers</field>
+        <field name="res_model">school.teacher</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Teacher
+            </p>
+        </field>
+    </record>
+</odoo>

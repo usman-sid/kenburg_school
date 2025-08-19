@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_company_view_form" model="ir.ui.view">
+        <field name="name">res.company.views.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="ir_attach_1_ids" widget="many2many_binary"/>
+                <field name="ir_attach_2_ids" widget="many2many_binary"/>
+                <field name="ir_attach_3_ids" widget="many2many_binary"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

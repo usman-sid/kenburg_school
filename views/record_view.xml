@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_school_records_list" model="ir.ui.view">
+        <field name="name">school.records.list</field>
+        <field name="model">school.record</field>
+        <field name="arch" type="xml">
+            <list string="School Records">
+                <field name="student_id"/>
+                <field name="father_name"/>
+                <field name="student_age"/>
+                <field name="student_gender"/>
+                <field name="student_class"/>
+                <field name="city"/>
+                <field name="contact"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_records_form" model="ir.ui.view">
+        <field name="name">school.records.form</field>
+        <field name="model">school.record</field>
+        <field name="arch" type="xml">
+            <form string="School Records">
+                <sheet>
+                    <div>
+                        <h2>
+                            <field name="priority" widget='priority'/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="teacher_id"/>
+                        </group>
+                        <group>
+                            <field name="father_name"/>
+                            <field name="student_age"/>
+                            <field name="student_gender"/>
+                            <field name="student_class"/>
+                            <field name="city"/>
+                            <field name="contact"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="remarks" string="Remarks Section">
+                            <field name="remarks" placeholder="Please Type here yours Remarks"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_records" model="ir.actions.act_window">
+        <field name="name">All Records</field>
+        <field name="res_model">school.record</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Record
+            </p>
+        </field>
+    </record>
+</odoo>
